@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="kr.co.joycorp.cordova.exitapp"
-           version="1.0.0">
+<plugin xmlns="https://cordova.apache.org/ns/plugins/1.0"
+        id="kr.co.joycorp.cordova.exitapp"
+        version="1.1.0">
 
   <name>ExitApp</name>
-  <description>Implements navigator.app.exitApp on WP8, Android, IOS</description>
+  <description>Implements navigator.app.exitApp on Android and iOS</description>
   <license>Apache 2.0</license>
-  <keywords>cordova,terminate</keywords>
+  <keywords>cordova,exit,terminate</keywords>
 
   <js-module src="www/ExitApp.js" name="exitApp">
     <merges target="navigator.app" />
   </js-module>
 
-  <!-- wp8 -->
-  <platform name="wp8">
-    <config-file target="config.xml" parent="/*">
-      <feature name="ExitApp">
-        <param name="wp-package" value="ExitApp" />
-      </feature>
-    </config-file>
-
-    <source-file src="src/wp/ExitApp.cs" />
-  </platform>
-  
   <!-- android -->
   <platform name="android">
     <config-file target="config.xml" parent="/*">
@@ -36,11 +25,12 @@
   <!-- ios -->
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
-       <feature name="ExitApp">
-          <param name="ios-package" value="ExitApp" />
-       </feature>
+      <feature name="ExitApp">
+        <param name="ios-package" value="ExitApp" />
+      </feature>
     </config-file>
-    <header-file src="src/ios/ExitApp.h" target-dir="ExitApp"/>
-    <source-file src="src/ios/ExitApp.m" target-dir="ExitApp"/>
+    <header-file src="src/ios/ExitApp.h" />
+    <source-file src="src/ios/ExitApp.m" />
   </platform>
+
 </plugin>
